@@ -73,7 +73,7 @@ class BinarySearchTree {
   remove(data) {
     let parent = null;
     let child = null;
-    let node = removehElement(this, data);
+    let node = (data) ? removehElement(this, data) : null;
 
     function removehElement(list, data, parentEl = null, childEl = null) {
       if (list === null) {
