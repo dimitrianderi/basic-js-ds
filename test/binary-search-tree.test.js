@@ -11,162 +11,162 @@ Object.freeze(assert);
 
 describe('Binary search tree', () => {
   //Presence requirement
-  // describe('variable presence', () => {
-  //   it.optional('class BinarySearchTree exists', () => {
-  //     expect(BinarySearchTree).to.exist;
-  //     expect(BinarySearchTree).to.be.instanceOf(Function);
-  //   });
+  describe('variable presence', () => {
+    it.optional('class BinarySearchTree exists', () => {
+      expect(BinarySearchTree).to.exist;
+      expect(BinarySearchTree).to.be.instanceOf(Function);
+    });
 
-  //   it.optional('correct inheritance', () => {
-  //     expect(new BinarySearchTree()).to.be.an.instanceOf(BinarySearchTree);
-  //   });
+    it.optional('correct inheritance', () => {
+      expect(new BinarySearchTree()).to.be.an.instanceOf(BinarySearchTree);
+    });
 
-  //   it.optional('has methods', () => {
-  //     const instance = new BinarySearchTree();
-  //     expect(instance).to.respondTo('root');
-  //     expect(instance).to.respondTo('add');
-  //     expect(instance).to.respondTo('find');
-  //     expect(instance).to.respondTo('has');
-  //     expect(instance).to.respondTo('remove');
-  //     expect(instance).to.respondTo('min');
-  //     expect(instance).to.respondTo('max');
-  //   });
-  // });
+    it.optional('has methods', () => {
+      const instance = new BinarySearchTree();
+      expect(instance).to.respondTo('root');
+      expect(instance).to.respondTo('add');
+      expect(instance).to.respondTo('find');
+      expect(instance).to.respondTo('has');
+      expect(instance).to.respondTo('remove');
+      expect(instance).to.respondTo('min');
+      expect(instance).to.respondTo('max');
+    });
+  });
 
   //Functional requirements
-  // describe('functional requirements', () => {
-  //   it.optional('returns correct root if no value added', () => {
-  //     const tree = new BinarySearchTree();
-  //     assert.strictEqual(tree.root(), null);
-  //   });
+  describe('functional requirements', () => {
+    it.optional('returns correct root if no value added', () => {
+      const tree = new BinarySearchTree();
+      assert.strictEqual(tree.root(), null);
+    });
 
-  //   it.optional('root works correctly some values were added', () => {
-  //     const tree = new BinarySearchTree();
-  //     tree.add(2);
-  //     tree.add(3);
-  //     tree.add(4);
-  //     assert.strictEqual(tree.root().data, 2);
-  //   });
+    it.optional('root works correctly some values were added', () => {
+      const tree = new BinarySearchTree();
+      tree.add(2);
+      tree.add(3);
+      tree.add(4);
+      assert.strictEqual(tree.root().data, 2);
+    });
 
-  //   it.optional('find existing values', () => {
-  //     const tree = new BinarySearchTree();
-  //     tree.add(2);
-  //     tree.add(7);
-  //     tree.add(1);
-  //     tree.add(8);
-  //     tree.add(4);
-  //     tree.add(32);
-  //     tree.add(12);
-  //     tree.add(14);
-  //     assert.strictEqual(tree.find(8).data, 8);
-  //     assert.strictEqual(tree.find(2).data, 2);
-  //     assert.strictEqual(tree.find(32).data, 32);
-  //     assert.strictEqual(tree.find(14).data, 14);
-  //   });
+    it.optional('find existing values', () => {
+      const tree = new BinarySearchTree();
+      tree.add(2);
+      tree.add(7);
+      tree.add(1);
+      tree.add(8);
+      tree.add(4);
+      tree.add(32);
+      tree.add(12);
+      tree.add(14);
+      assert.strictEqual(tree.find(8).data, 8);
+      assert.strictEqual(tree.find(2).data, 2);
+      assert.strictEqual(tree.find(32).data, 32);
+      assert.strictEqual(tree.find(14).data, 14);
+    });
 
-  //   it.optional('find non-existing values', () => {
-  //     const tree = new BinarySearchTree();
-  //     tree.add(2);
-  //     tree.add(7);
-  //     tree.add(1);
-  //     tree.add(8);
-  //     tree.add(4);
-  //     tree.add(32);
-  //     tree.add(12);
-  //     tree.add(14);
-  //     assert.strictEqual(tree.find(33), null);
-  //     assert.strictEqual(tree.find(1337), null);
-  //     assert.strictEqual(tree.find(42), null);
-  //   });
+    it.optional('find non-existing values', () => {
+      const tree = new BinarySearchTree();
+      tree.add(2);
+      tree.add(7);
+      tree.add(1);
+      tree.add(8);
+      tree.add(4);
+      tree.add(32);
+      tree.add(12);
+      tree.add(14);
+      assert.strictEqual(tree.find(33), null);
+      assert.strictEqual(tree.find(1337), null);
+      assert.strictEqual(tree.find(42), null);
+    });
 
-  //   it.optional('correctly checks presence of the values', () => {
-  //     const tree = new BinarySearchTree();
-  //     tree.add(9);
-  //     tree.add(14);
-  //     tree.add(54);
-  //     tree.add(2);
-  //     tree.add(6);
-  //     tree.add(8);
-  //     tree.add(31);
-  //     tree.add(1);
-  //     assert.strictEqual(tree.has(54), true);
-  //     assert.strictEqual(tree.has(8), true);
-  //     assert.strictEqual(tree.has(7), false);
-  //     assert.strictEqual(tree.has(4), false);
-  //   });
+    it.optional('correctly checks presence of the values', () => {
+      const tree = new BinarySearchTree();
+      tree.add(9);
+      tree.add(14);
+      tree.add(54);
+      tree.add(2);
+      tree.add(6);
+      tree.add(8);
+      tree.add(31);
+      tree.add(1);
+      assert.strictEqual(tree.has(54), true);
+      assert.strictEqual(tree.has(8), true);
+      assert.strictEqual(tree.has(7), false);
+      assert.strictEqual(tree.has(4), false);
+    });
 
-  //   it.optional('remove & has works correctly', () => {
-  //     const tree = new BinarySearchTree();
-  //     tree.add(9);
-  //     tree.add(14);
-  //     tree.add(2);
-  //     tree.add(6);
-  //     tree.add(128);
-  //     tree.add(8);
-  //     tree.add(31);
-  //     tree.add(54);
-  //     tree.add(1);
-  //     tree.remove(14);
-  //     tree.remove(8);
-  //     tree.remove(9);
-  //     assert.strictEqual(tree.has(14), false);
-  //     assert.strictEqual(tree.has(8), false);
-  //     assert.strictEqual(tree.has(9), false);
-  //     assert.strictEqual(tree.has(2), true);
-  //     assert.strictEqual(tree.has(6), true);
-  //     assert.strictEqual(tree.has(128), true);
-  //     assert.strictEqual(tree.has(31), true);
-  //     assert.strictEqual(tree.has(54), true);
-  //     assert.strictEqual(tree.has(1), true);
-  //   });
+    it.optional('remove & has works correctly', () => {
+      const tree = new BinarySearchTree();
+      tree.add(9);
+      tree.add(14);
+      tree.add(2);
+      tree.add(6);
+      tree.add(128);
+      tree.add(8);
+      tree.add(31);
+      tree.add(54);
+      tree.add(1);
+      tree.remove(14);
+      tree.remove(8);
+      tree.remove(9);
+      assert.strictEqual(tree.has(14), false);
+      assert.strictEqual(tree.has(8), false);
+      assert.strictEqual(tree.has(9), false);
+      assert.strictEqual(tree.has(2), true);
+      assert.strictEqual(tree.has(6), true);
+      assert.strictEqual(tree.has(128), true);
+      assert.strictEqual(tree.has(31), true);
+      assert.strictEqual(tree.has(54), true);
+      assert.strictEqual(tree.has(1), true);
+    });
 
-  //   it.optional('min works correctly', () => {
-  //     const tree = new BinarySearchTree();
-  //     tree.add(9);
-  //     tree.add(14);
-  //     tree.add(54);
-  //     tree.add(2);
-  //     tree.add(6);
-  //     tree.add(8);
-  //     tree.add(31);
-  //     tree.add(1);
-  //     tree.remove(6);
-  //     tree.remove(2);
-  //     assert.strictEqual(tree.min(), 1);
-  //   });
+    it.optional('min works correctly', () => {
+      const tree = new BinarySearchTree();
+      tree.add(9);
+      tree.add(14);
+      tree.add(54);
+      tree.add(2);
+      tree.add(6);
+      tree.add(8);
+      tree.add(31);
+      tree.add(1);
+      tree.remove(6);
+      tree.remove(2);
+      assert.strictEqual(tree.min(), 1);
+    });
 
-  //   it.optional('max works correctly', () => {
-  //     const tree = new BinarySearchTree();
-  //     tree.add(9);
-  //     tree.add(14);
-  //     tree.add(54);
-  //     tree.add(2);
-  //     tree.add(6);
-  //     tree.add(8);
-  //     tree.add(31);
-  //     tree.add(1);
-  //     tree.remove(6);
-  //     tree.remove(2);
-  //     assert.strictEqual(tree.max(), 54);
-  //   });
+    it.optional('max works correctly', () => {
+      const tree = new BinarySearchTree();
+      tree.add(9);
+      tree.add(14);
+      tree.add(54);
+      tree.add(2);
+      tree.add(6);
+      tree.add(8);
+      tree.add(31);
+      tree.add(1);
+      tree.remove(6);
+      tree.remove(2);
+      assert.strictEqual(tree.max(), 54);
+    });
 
-  // });
+  });
 
   describe('some additional tests', () => {
-    // it.optional('correctly find min & max', () => {
-    //   const { values, min, max } = getTestingTools(20);
-    //   const tree = new BinarySearchTree();
-    //   values.forEach(value => tree.add(value));
-    //   assert.strictEqual(tree.min(), min);
-    //   assert.strictEqual(tree.max(), max);
-    // });
+    it.optional('correctly find min & max', () => {
+      const { values, min, max } = getTestingTools(20);
+      const tree = new BinarySearchTree();
+      values.forEach(value => tree.add(value));
+      assert.strictEqual(tree.min(), min);
+      assert.strictEqual(tree.max(), max);
+    });
 
-    // it.optional('correctly find values', () => {
-    //   const { values } = getTestingTools(20);
-    //   const tree = new BinarySearchTree();
-    //   values.forEach(value => tree.add(value));
-    //   assert.strictEqual(values.every(value => tree.has(value) === true && tree.find(value).data === value), true);
-    // });
+    it.optional('correctly find values', () => {
+      const { values } = getTestingTools(20);
+      const tree = new BinarySearchTree();
+      values.forEach(value => tree.add(value));
+      assert.strictEqual(values.every(value => tree.has(value) === true && tree.find(value).data === value), true);
+    });
 
     it.optional('correctly remove values', () => {
       const { values } = getTestingTools(20);
