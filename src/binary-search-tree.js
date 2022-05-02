@@ -76,7 +76,7 @@ class BinarySearchTree {
 
     function removeNode(list, data) {
       if (!list) {
-        return;
+        return null;
       }
 
       if (data < list.data) {
