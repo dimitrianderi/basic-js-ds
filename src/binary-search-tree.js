@@ -7,6 +7,7 @@ const { Node } = require('../extensions/list-tree.js');
 * using Node from extensions
 */
 class BinarySearchTree {
+
   root() {
     return this;
   }
@@ -71,69 +72,45 @@ class BinarySearchTree {
   }
 
   remove(data) {
-    let parent = null;
-    let child = null;
-    let node = (data) ? removehElement(this, data) : null;
+    removeNode(this, data);
 
-    function removehElement(list, data, parentEl = null, childEl = null) {
-      if (list === null) {
-        return null;
+    function removeNode(list, data) {
+      if (!list) {
+        return;
       }
 
-      if (list.data === data) {
-        parent = parentEl;
-        child = childEl;
+      if (data < list.data) {
+        list.left = removeNode(list.left, data);
+        return list;
+      } else if (list.data < data) {
+        list.right = removeNode(list.right, data);
+        return list;
+      } else {
+        if (!list.left && !list.right) {
+          return null;
+        }
+
+        if (!list.left) {
+          list = list.right;
+          return list;
+        }
+
+        if (!list.right) {
+          list = list.left;
+          return list;
+        }
+
+        let minFromRight = list.right;
+        while (minFromRight.left) {
+          minFromRight = minFromRight.left;
+        }
+
+        list.data = minFromRight.data;
+
+        list.right = removeNode(list.right, minFromRight.data);
         return list;
       }
-
-      return (data > list.data) ? removehElement(list.right, data, list, 'right') : removehElement(list.left, data, list, 'left');
     }
-
-    if (node === null) return;
-
-    if (node.left === null && node.right === null) {
-      parent[child] = null;
-      return;
-    }
-
-    if (node.left === null) {
-      let right = node.right.right;
-      let left = node.right.left;
-      node.data = node.right.data;
-      node.right = right;
-      node.left = left;
-      return;
-    }
-
-    if (node.right === null) {
-      let left = node.left.left;
-      let right = node.left.right;
-      node.data = node.left.data;
-      node.right = right;
-      node.left = left;
-      return;
-    }
-
-    let minRightElement = minRight(node.right);
-    function minRight(node) {
-      return (node.left === null) ? node : minRight(node.left);
-    }
-
-    node.data = minRightElement.data;
-
-    if (minRightElement.right) {
-      let right = minRightElement.right.right;
-      let left = minRightElement.right.left;
-      let newName = minRightElement.right.data;
-      minRightElement.data = newName;
-      minRightElement.left = left;
-      minRightElement.right = right;
-    } else {
-      node.right = null;
-    }
-
-
-    return;
   }
 
   min() {
